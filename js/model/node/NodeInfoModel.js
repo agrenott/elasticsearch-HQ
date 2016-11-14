@@ -28,12 +28,12 @@ var NodeInfoModel = Backbone.Model.extend({
     },
     url:function () {
         if (this.nodeId) {
-            return '/_cluster/nodes/' + this.nodeId + '?all=true';
+            return '/_cluster/nodes/' + this.nodeId;
             // 100rc1 return '/_nodes/' + this.nodeId + '?all=true';
         }
         else {
-            return '/_cluster/nodes?all=true';
-            //100rc1 return '/_nodes?all=true';
+            return '/_cluster/nodes/_all';
+            //100rc1 return '/_nodes/_all';
         }
     }
 

@@ -34,10 +34,10 @@ function RESTModelFactory() {
                     this.fetchURL = '/';
                 }
                 else if (this.cmd == 'nodeinfo') {
-                    this.fetchURL = '/_nodes?all=true';
+                    this.fetchURL = '/_nodes/_all';
                 }
                 else if (this.cmd == 'nodestats') {
-                    this.fetchURL = '/_nodes/stats?all=1';
+                    this.fetchURL = '/_nodes/stats/_all';
                 }
                 else if (this.cmd == 'indexaliases') {
                     this.fetchURL = '/_aliases';

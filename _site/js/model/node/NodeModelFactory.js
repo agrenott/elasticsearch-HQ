@@ -22,10 +22,10 @@ function NodeInfoModelFactory() {
             var model = new NodeInfoModel({nodeId:nodeId, connectionRootURL:cluster.get("connectionRootURL")}); //{
             model.url = function () {
                 if (nodeId) {
-                    return '/_nodes/' + nodeId + '?all=true';
+                    return '/_nodes/' + nodeId;
                 }
                 else {
-                    return '/_nodes?all=true';
+                    return '/_nodes/_all';
                 }
             };
             return model;
@@ -41,7 +41,7 @@ function NodeStatsModelFactory() {
         if (versionUtil.isNewer("0.99.0", cluster.versionNumber.concat)) {
             var model = new NodeStatsModel({nodeId:nodeId, connectionRootURL:cluster.get("connectionRootURL")}); //{
             model.url = function () {
-                return '/_nodes/' + this.nodeId + '/stats?all=1';
+                return '/_nodes/' + this.nodeId + '/stats/_all';
             };
             return model;
         }
@@ -58,7 +58,7 @@ function NodeStatsListModelFactory() {
             model.url = function () {
                 var sNodes = this.get('selectedNodes');
                 if (sNodes == undefined || sNodes.length === 0) {
-                    return '/_nodes/stats?all=1';
+                    return '/_nodes/stats/_all';
                 }
                 else {
                     var nodes = '';
@@ -68,7 +68,7 @@ function NodeStatsListModelFactory() {
                             nodes = nodes + ',';
                         }
                     }
-                    return '/_nodes/' + nodes + '/stats?all=1';
+                    return '/_nodes/' + nodes + '/stats/_all';
                 }
 
 
@@ -88,7 +88,7 @@ function NodeInfoListModelFactory() {
             model.url = function () {
                 var sNodes = this.get('selectedNodes');
                 if (sNodes == undefined || sNodes.length === 0) {
-                    return '/_nodes?all=1';
+                    return '/_nodes/_all';
                 }
                 else {
                     var nodes = '';
@@ -98,7 +98,7 @@ function NodeInfoListModelFactory() {
                             nodes = nodes + ',';
                         }
                     }
-                    return '/_nodes/' + nodes + '?all=1';
+                    return '/_nodes/' + nodes + '/_all';
                 }
             };
             return model;

@@ -32,7 +32,7 @@ var NodeStatsListModel = Backbone.Model.extend({//Backbone.Collection.extend({
     url:function () {
         var sNodes = this.get('selectedNodes');
         if (sNodes == undefined || sNodes.length === 0) {
-            return '/_cluster/nodes/stats?all=1';
+            return '/_cluster/nodes/stats/_all';
         }
         else {
             var nodes = '';
@@ -42,7 +42,7 @@ var NodeStatsListModel = Backbone.Model.extend({//Backbone.Collection.extend({
                     nodes = nodes + ',';
                 }
             }
-            return '/_cluster/nodes/' + nodes + '/stats?all=1';
+            return '/_cluster/nodes/' + nodes + '/stats/_all';
         }
         //return '/_nodes/stats?clear=true&os=false'; // test for incomplete dataset returns from server.
     },

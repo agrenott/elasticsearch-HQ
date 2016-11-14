@@ -28,7 +28,7 @@ var NodeInfoListModel = Backbone.Model.extend({
     url:function () {
         var sNodes = this.get('selectedNodes');
         if (sNodes == undefined || sNodes.length === 0) {
-            return '/_cluster/nodes?all=1';
+            return '/_cluster/nodes/_all';
         }
         else {
             var nodes = '';
